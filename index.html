@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111318">
+  <meta name="description" content="이변록 도서관 — 캐릭터와 플롯을 보관하는 비밀 기록 아카이브">
+  <title>이변록 도서관 | 기록 열람실</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="이변록 도서관 홈">
+      <span class="brand-mark">異</span>
+      <span><strong>이변록 도서관</strong><small>IBYEONROK ARCHIVE</small></span>
+    </a>
+    <span class="status"><i></i> ARCHIVE SYSTEM ONLINE</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span>DOCUMENT ACCESS TERMINAL</span><span>EST. 20XX</span></div>
+      <p class="classification">CLASSIFICATION: INTERNAL ARCHIVE</p>
+      <h1>모든 이야기는<br><em>기록</em>이 된다.</h1>
+      <p class="hero-copy">인물과 플롯, 아직 끝나지 않은 이야기의 보관소.<br>열람할 기록을 검색하거나 분류를 선택하십시오.</p>
+      <div class="hero-stats">
+        <div><strong id="record-count">00</strong><span>전체 기록</span></div>
+        <div><strong>02</strong><span>기록 분류</span></div>
+        <div><strong>OPEN</strong><span>열람 상태</span></div>
+      </div>
+    </section>
+
+    <section class="archive" aria-labelledby="archive-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">INDEX / 001</p><h2 id="archive-title">기록 열람실</h2></div>
+        <span class="archive-label">PUBLIC ACCESS <b>●</b></span>
+      </div>
+
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="이름, 태그, 내용으로 검색..." autocomplete="off">
+        <kbd>SEARCH</kbd>
+      </label>
+
+      <div class="filters" role="group" aria-label="기록 분류">
+        <button class="filter active" data-filter="all">전체 기록 <span id="all-count">00</span></button>
+        <button class="filter" data-filter="character">인물 기록 <span id="character-count">00</span></button>
+        <button class="filter" data-filter="plot">플롯 기록 <span id="plot-count">00</span></button>
+      </div>
+
+      <div class="result-line"><span id="result-label">검색 결과를 불러오는 중...</span><span>SORT: LATEST</span></div>
+      <div id="records" class="record-grid" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <span class="empty-icon">⌕</span>
+        <h3>일치하는 기록이 없습니다.</h3>
+        <p>검색어를 바꾸거나 다른 분류를 선택하십시오.</p>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice-icon">i</div>
+      <div><strong>열람 안내</strong><p>이곳의 기록은 공개 열람용입니다. 비공개 설정이나 개인 정보는 등록하지 마십시오.</p></div>
+      <span>NOTICE / 001</span>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark small">異</span><span>이변록 도서관</span></div>
+    <p>FICTIONAL ARCHIVE · A PERSONAL CREATIVE PROJECT</p>
+    <p class="footer-small">기록은 창작물이며, 실제 인물·사건과 무관할 수 있습니다.</p>
+  </footer>
+
+  <dialog id="record-dialog" class="record-dialog">
+    <button id="close-dialog" class="close-dialog" aria-label="닫기">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <script src="records.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
